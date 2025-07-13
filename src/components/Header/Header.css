@@ -1,0 +1,285 @@
+header {
+    background-color: var(--cor-header);
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.img-logo-marca {
+    width: 8rem;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.numeros {
+    list-style: none;
+    flex-direction: row;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.li-telefone {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.li-telefone p {
+    font-family: 'Alexandria', sans-serif;
+    font-weight: bold;
+}
+
+.info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.li-telefone p {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.li-horarios {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: .2rem;
+    margin-top: 0.5rem;
+    gap: 0.1rem;
+}
+
+.li-horarios p {
+    color: #FFF;
+    font-family: Alexandria;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.input-pesquisa {
+    width: 341px;
+    height: 41px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    border: 1px solid #000;
+    background: #FFF;
+}
+
+.input-container-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.input-pesquisa {
+    width: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input-pesquisa:focus {
+    border-color: #666;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    pointer-events: none;
+}
+
+.buttons-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    /* background-color: red; */
+    width: 35%;
+}
+
+.btn-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: #FFF;
+    font-family: Alexandria;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-favorito-mensagem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: #FFF;
+    font-family: Alexandria;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+
+.btn-favorito-mensagem p {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    margin-left: 10px;
+}
+
+
+.btn-sair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: #FFF;
+    font-family: Alexandria;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    width: 8rem;
+}
+
+.dropdown-texto {
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dropdown-conteudo {
+    display: none;
+    position: absolute;
+    background-color: var(--cor-header);
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.dropdown-item {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    border: none;
+    font-family: Arial, sans-serif;
+}
+
+.dropdown-conteudo button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 15px;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    text-align: left;
+}
+
+.dropdown-item:hover,
+.dropdown-conteudo button:hover {
+    background-color: #3a3a3a;
+}
+
+.dropdown:hover .dropdown-conteudo {
+    display: block;
+}
+
+.footer-header {
+    background-color: #04123f;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    gap: 1rem;
+}
+
+.btn-veiculos {
+    background-color: var(--cor-header);
+    color: #FFF;
+    font-family: Alexandria;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+
+}
+
+.btn-veiculos:hover {
+    background-color: #0A301C;
+}
+
+.hover {
+    &:hover {
+        cursor: pointer;
+        background-color: #0A301C;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .info,
+    .input-container-header,
+    .footer-header,
+    .btn-favorito-mensagem {
+        display: none;
+    }
+}

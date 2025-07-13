@@ -1,0 +1,75 @@
+.page-not-found {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+}
+
+.page-not-found p {
+    color: var(--cor-header);
+    font-family: Poppins;
+    font-size: 75px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.page-not-found h1 {
+    color: #000;
+    font-family: Poppins;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.page-not-found h2 {
+    color: #000;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.btn-back {
+    display: flex;
+    width: 5.5vh;
+    height: 5.5vh;
+    background-color: var(--cor-header);
+    padding: 2vh;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5vh;
+
+    &:hover {
+        background-color: var(--cor-filtro-checked);
+    }
+}
+
+@media (max-width: 400px) {
+    .page-not-found p {
+        font-size: 50px;
+    }
+
+    .page-not-found h1 {
+        font-size: 36px;
+    }
+
+    .page-not-found img {
+        width: 100%;
+    }
+
+    .page-not-found h2 {
+        padding: 2vh;
+        font-size: 18px;
+    }
+
+    .btn {
+        margin-bottom: 3vh;
+    }
+
+}

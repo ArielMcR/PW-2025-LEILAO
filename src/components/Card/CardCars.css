@@ -1,0 +1,103 @@
+.card-cars {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+    min-width: 16vw;
+    max-width: 16vw;
+    height: fit-content;
+    background-color: rgb(37, 37, 37);
+    box-shadow: 0px 0px rgba(0, 0, 0, 0.315);
+}
+
+.card-cars img {
+    width: 100%;
+}
+
+.txt-card-cars {
+    padding: 2% 5% 5%;
+    text-align: left;
+}
+
+.txt-card-cars h1 {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 2%;
+}
+
+.txt-card-cars p {
+    color: rgb(211, 211, 211);
+    font-size: 1.05em;
+    margin-bottom: 1%;
+}
+
+.flex {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.botao-card-cars {
+    padding: 0.9em 1.1em;
+    background-color: gray;
+    font-size: 1em;
+    font-weight: 600;
+    font-family: 'Alexandria';
+    color: white;
+    border-style: none;
+    border-radius: 0.5em;
+    margin-top: 2%;
+    right: 20%;
+    cursor: pointer;
+}
+
+.botao-card-cars:hover {
+    background-color: rgb(211, 211, 211);
+    color: black;
+}
+
+@media screen and (max-width: 1024px) {
+    .card-cars {
+        min-width: 30vw;
+        max-width: 32vw;
+        margin: 3%;
+    }
+
+    .txt-card-cars h1 {
+        font-size: 1.3em;
+    }
+
+    .txt-card-cars p {
+        font-size: 0.95em;
+    }
+
+    .botao-card-cars {
+        padding: 0.8em 1em;
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card-cars {
+        min-width: 80vw;
+        max-width: 85vw;
+        margin: 4% auto;
+    }
+
+    .txt-card-cars {
+        padding: 3% 6% 6%;
+    }
+
+    .txt-card-cars h1 {
+        font-size: 1.2em;
+    }
+
+    .txt-card-cars p {
+        font-size: 0.9em;
+    }
+
+    .botao-card-cars {
+        padding: 0.7em 0.9em;
+        font-size: 0.85em;
+        right: 10%;
+    }
+}

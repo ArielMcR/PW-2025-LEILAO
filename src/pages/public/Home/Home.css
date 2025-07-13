@@ -1,0 +1,10 @@
+.p-galleria-item-prev,
+.p-galleria-item-next {
+    font-size: 10rem !important;
+    color: white !important;
+}
+
+.p-galleria-item-prev:hover,
+.p-galleria-item-next:hover {
+    color: #ff8c42 !important;
+}

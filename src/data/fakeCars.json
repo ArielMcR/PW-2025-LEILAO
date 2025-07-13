@@ -1,0 +1,123 @@
+[
+    {
+        "id": "veh001",
+        "name": "Civic Touring",
+        "imgs": [
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg"
+        ],
+        "mark": "Honda",
+        "currentBid": "R$ 85,000",
+        "traction": "FWD",
+        "year": "2020",
+        "kilometers": "45,000 km",
+        "bidEndTime": "2025-07-15 18:00",
+        "disableSlideImgs": false
+    },
+    {
+        "id": "veh002",
+        "name": "Corolla XEi",
+        "imgs": [
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg"
+        ],
+        "mark": "Toyota",
+        "currentBid": "R$ 90,000",
+        "traction": "FWD",
+        "year": "2021",
+        "kilometers": "30,000 km",
+        "bidEndTime": "2025-07-16 14:00",
+        "disableSlideImgs": false
+    },
+    {
+        "id": "veh003",
+        "name": "Tucson Limited",
+        "imgs": [
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg"
+        ],
+        "mark": "Hyundai",
+        "currentBid": "R$ 75,000",
+        "traction": "AWD",
+        "year": "2019",
+        "kilometers": "60,000 km",
+        "bidEndTime": "2025-07-14 20:00",
+        "disableSlideImgs": true
+    },
+    {
+        "id": "veh004",
+        "name": "Ranger XLT",
+        "imgs": [
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg"
+        ],
+        "mark": "Ford",
+        "currentBid": "R$ 120,000",
+        "traction": "4WD",
+        "year": "2022",
+        "kilometers": "25,000 km",
+        "bidEndTime": "2025-07-17 16:00",
+        "disableSlideImgs": false
+    },
+    {
+        "id": "veh005",
+        "name": "Golf GTI",
+        "imgs": [
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg"
+        ],
+        "mark": "Volkswagen",
+        "currentBid": "R$ 95,000",
+        "traction": "FWD",
+        "year": "2020",
+        "kilometers": "40,000 km",
+        "bidEndTime": "2025-07-15 12:00",
+        "disableSlideImgs": true
+    },
+    {
+        "id": "veh006",
+        "name": "Creta Prestige",
+        "imgs": [
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg"
+        ],
+        "mark": "Hyundai",
+        "currentBid": "R$ 80,000",
+        "traction": "FWD",
+        "year": "2021",
+        "kilometers": "35,000 km",
+        "bidEndTime": "2025-07-16 10:00",
+        "disableSlideImgs": false
+    },
+    {
+        "id": "veh007",
+        "name": "Hilux SRX",
+        "imgs": [
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg"
+        ],
+        "mark": "Toyota",
+        "currentBid": "R$ 150,000",
+        "traction": "4WD",
+        "year": "2023",
+        "kilometers": "20,000 km",
+        "bidEndTime": "2025-07-18 15:00",
+        "disableSlideImgs": false
+    },
+    {
+        "id": "veh008",
+        "name": "A3 Sedan",
+        "imgs": [
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg",
+            "https://cdn.motor1.com/images/mgl/XxZyk/s3/manhart-vw-golf-gti-290.jpg"
+        ],
+        "mark": "Audi",
+        "currentBid": "R$ 110,000",
+        "traction": "FWD",
+        "year": "2020",
+        "kilometers": "50,000 km",
+        "bidEndTime": "2025-07-14 17:00",
+        "disableSlideImgs": false
+    }
+]

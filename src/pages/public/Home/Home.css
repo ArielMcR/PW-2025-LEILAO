@@ -8,3 +8,75 @@
 .p-galleria-item-next:hover {
     color: #ff8c42 !important;
 }
+
+.cards-type-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.dropdown-city {
+    width: 100%;
+    max-width: 200px;
+    margin-right: 10px;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 200px;
+    height: 2rem;
+    align-items: center;
+}
+
+.search-button {
+    width: 30%;
+    max-width: 150px;
+    height: 2rem;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.see-more {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    background-color: #ff8c42;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.see-more:hover {
+    background-color: #e07b3d;
+}
+
+.see-more-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

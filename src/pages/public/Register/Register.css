@@ -1,0 +1,55 @@
+.register-left {
+    height: 90%;
+}
+
+.register-right {
+    height: 90%;
+}
+
+.register-btn {
+    display: flex;
+    gap: 25px;
+    margin-top: 25px;
+    width: 70%;
+}
+
+.register-error {
+    color: red;
+    font-size: 12px;
+    margin-top: 0px;
+    margin-left: 10%;
+    align-self: flex-start;
+    padding-left: 20px;
+}
+
+.register-input-form {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.password-requirements {
+    margin-top: 5px;
+    margin-left: 10%;
+    align-self: flex-start;
+    padding-left: 20px;
+    list-style: none;
+}
+
+.password-requirements li {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.password-requirements .met {
+    color: green;
+}
+
+.password-requirements .unmet {
+    color: red;
+}
+
+.password-requirements svg {
+    margin-right: 5px;
+}

@@ -7,12 +7,13 @@ import './index.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PrivateRoute } from './components/PrivateRoutes/PrivateRoutes';
 import Login from './pages/public/Login/Login';
-// import Register from './pages/public/Register/Register';
+import Register from './pages/public/Register/Register';
 import AuthContextProvider from './context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 import 'primereact/resources/primereact.min.css';
-import "primeicons/primeicons.css";
-import "primeflex/primeflex.css";
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
+import 'primereact/resources/themes/saga-blue/theme.css';
 import { PrimeReactProvider } from "primereact/api";
 // import { AdminLayout } from './components/AdminLayout/AdminLayout';
 import AdminRoutes from './components/AdminRoutes/AdminRoutes';
@@ -29,7 +30,7 @@ root.render(
           <QueryClientProvider client={client}>
             <Routes>
               <Route path="/" element={<Login />} />
-              {/* <Route path="/register" element={<Register />} /> */}
+              <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />
               {/* <Route path='/carros/:id' element={<CarDetail />} /> */}
               <Route element={<PrivateRoute allowedRoles={['ROLE_ADMIN']} />}>

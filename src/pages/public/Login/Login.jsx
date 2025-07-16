@@ -5,6 +5,7 @@ import './Login.css';
 import { Key, User } from '@phosphor-icons/react';
 import { VERSION_APP } from '../../../utils/constants';
 import { toast } from 'react-toastify';
+import Logo from '../../../assets/imgs/Logo-Preta.png'
 
 function Login() {
     const [credentials, setCredentials] = useState({
@@ -65,8 +66,10 @@ function Login() {
     return (
         <main className="login">
             <div className="container-login">
-                <div className="login-left"></div>
                 <div className="login-right">
+                    <div className="img-container">
+                        <img src={Logo} alt="Login" className='img-login' />
+                    </div>
                     <h1>Olá <br />Seja bem vindo(a)</h1>
                     <form onSubmit={handleSubmit} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <p>faça o login para acessar o sistema</p>

@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import users from '../data/users.json';
-// import Api from "../api/api";
+import Api from "../api/api";
 
 export const AuthContext = createContext();
 
@@ -29,25 +29,25 @@ function AuthContextProvider({ children }) {
     const login = async (credential) => {
         const { user, password } = credential;
         try {
-            const user_cad = users.users.find(u => (u.email === user || u.name === user) && u.password === password);
-            if (user_cad) {
-                const token = user_cad.jwt;
-                document.cookie = `token=${token}; path=/; max-age=3600`;
-                const payload = jwtDecode(token);
-                setUser({ id: payload.id, role: payload.role, name: payload.name });
-                return { status: true };
-            }
-            // const result = await Api.post('auth/login', {
-            //     name: user,
-            //     password: password
-            // });
-            // if (result.status === 200 && result.data.token) {
-            //     const token = result.data.token;
+            // const user_cad = users.users.find(u => (u.email === user || u.name === user) && u.password === password);
+            // if (user_cad) {
+            //     const token = user_cad.jwt;
             //     document.cookie = `token=${token}; path=/; max-age=3600`;
             //     const payload = jwtDecode(token);
             //     setUser({ id: payload.id, role: payload.role, name: payload.name });
             //     return { status: true };
             // }
+            const result = await Api.post('auth/login', {
+                name: user,
+                password: password
+            });
+            if (result.status === 200 && result.data.token) {
+                const token = result.data.token;
+                document.cookie = `token=${token}; path=/; max-age=3600`;
+                const payload = jwtDecode(token);
+                setUser({ id: payload.id, role: payload.role, name: payload.name });
+                return { status: true };
+            }
             else {
                 setUser(null);
                 return { status: false, message: 'Usuário não encontrado, senha inválida ou credenciais inválidas' };

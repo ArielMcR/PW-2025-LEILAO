@@ -4,6 +4,7 @@ import { User, Key, CheckCircle } from '@phosphor-icons/react';
 import { toast } from 'react-toastify';
 import { VERSION_APP } from '../../../utils/constants';
 import './Register.css';
+import Api from '../../../api/api';
 
 function Register() {
     const navigate = useNavigate();
@@ -113,16 +114,16 @@ function Register() {
             return;
         }
         try {
-            // const result = await Api.post('auth/register', {
-            //   name: form.name,
-            //   user: form.user,
-            //   cellphone: form.phone,
-            //   email: form.email,
-            //   password: form.password,
-            // });
-            // if (result.status === 200) {
-            toast.success('Cadastro Realizado!');
-            // }
+            const result = await Api.post('auth/register', {
+                name: form.name,
+                user: form.user,
+                cellphone: form.phone,
+                email: form.email,
+                password: form.password,
+            });
+            if (result.status === 200) {
+                toast.success('Cadastro Realizado!');
+            }
         } catch (error) {
             toast.error('Erro ao cadastrar usuário. Tente novamente.');
         } finally {

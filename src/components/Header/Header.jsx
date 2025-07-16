@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.css'
-import logo from '../../assets/imgs/logo.png'
+import logo from '../../assets/imgs/logo-branca.png'
 import { Clock, MagnifyingGlass, Phone, UserCircle, UserCircleGear, WhatsappLogo, Star, Chat } from '@phosphor-icons/react'
 import { useAuth } from '../../hooks/useAuth'
 import { Link } from 'react-router'

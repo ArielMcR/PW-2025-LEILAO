@@ -99,7 +99,7 @@ function Login() {
                             />
                         </div>
                         {erros.password && <span className="error">{erros.password}</span>}
-                        <Link to="/forgot-password" className="forget-password">
+                        <Link to={`/forgot-password/${credentials.user}`} className="forget-password">
                             Esqueceu a senha?
                         </Link>
                         <button type="submit" className="btn-enter" disabled={enviando}>

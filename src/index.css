@@ -26,3 +26,11 @@ html {
   font-weight: 400;
   background-color: var(--cor-fundo);
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
+}

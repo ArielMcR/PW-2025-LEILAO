@@ -20,6 +20,7 @@ import AdminRoutes from './components/AdminRoutes/AdminRoutes';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import ForgotPassword from './pages/public/ForgotPassword/ForgotPassword';
 const client = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -32,6 +33,8 @@ root.render(
               <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/forgot-password/:email" element={<ForgotPassword />} />
               {/* <Route path='/carros/:id' element={<CarDetail />} /> */}
               <Route element={<PrivateRoute allowedRoles={['ROLE_ADMIN']} />}>
                 <Route path="/admin/*">

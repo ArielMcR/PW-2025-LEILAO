@@ -197,6 +197,7 @@ header {
     position: absolute;
     background-color: var(--cor-header);
     min-width: 150px;
+    height: auto;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border: 1px solid #000;
@@ -256,11 +257,14 @@ header {
     font-weight: 500;
     line-height: normal;
     border-radius: 20px;
-    padding: 0.5rem 1rem;
     border: none;
     cursor: pointer;
     height: 100%;
 
+}
+
+.btn-veiculos p {
+    margin: 0;
 }
 
 .btn-veiculos:hover {

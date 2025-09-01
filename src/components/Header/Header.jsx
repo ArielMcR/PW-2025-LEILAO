@@ -3,7 +3,7 @@ import './Header.css'
 import logo from '../../assets/imgs/logo-branca.png'
 import { Clock, MagnifyingGlass, Phone, UserCircle, UserCircleGear, WhatsappLogo, Star, Chat } from '@phosphor-icons/react'
 import { useAuth } from '../../hooks/useAuth'
-import { Link } from 'react-router'
+import { Link, NavLink } from 'react-router'
 import Swal from 'sweetalert2'
 import { User } from 'lucide-react'
 export default function Header() {
@@ -65,6 +65,7 @@ export default function Header() {
                                     <UserCircleGear size={32} weight="duotone" />
                                     <p>{user.name}</p>
                                 </span>
+
                                 <div className="dropdown-conteudo">
                                     <Link to={'/user'} className='dropdown-item'>Minha conta</Link>
                                     {ViewportHeight < 800 && (
@@ -72,6 +73,12 @@ export default function Header() {
                                             <Link to={'/'} className='dropdown-item'>Favoritos</Link>
                                         </>
                                     )}
+                                    <Link to='/admin/Categories' className='dropdown-item'>
+                                        Categorias
+                                    </Link>
+                                    <Link to='/admin/Feedback' className='dropdown-item'>
+                                        Feedback
+                                    </Link>
                                     <button onClick={handleLogout}>Sair</button>
                                 </div>
                             </div>

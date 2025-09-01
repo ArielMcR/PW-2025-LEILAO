@@ -35,7 +35,6 @@ root.render(
               <Route path="/home" element={<Home />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/forgot-password/:email" element={<ForgotPassword />} />
-              {/* <Route path='/carros/:id' element={<CarDetail />} /> */}
               <Route element={<PrivateRoute allowedRoles={['ROLE_ADMIN']} />}>
                 <Route path="/admin/*">
                   <Route path="*" element={<AdminRoutes />} />

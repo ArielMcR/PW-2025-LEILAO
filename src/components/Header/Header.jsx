@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Header.css'
 import logo from '../../assets/imgs/logo-branca.png'
-import { Clock, MagnifyingGlass, Phone, UserCircle, UserCircleGear, WhatsappLogo, Star, Chat } from '@phosphor-icons/react'
+import { MagnifyingGlass, UserCircle, UserCircleGear, Star, List, X } from '@phosphor-icons/react'
 import { useAuth } from '../../hooks/useAuth'
-import { Link, NavLink } from 'react-router'
+import { Link } from 'react-router'
 import Swal from 'sweetalert2'
-import { User } from 'lucide-react'
+
 export default function Header() {
     const { user, logout } = useAuth()
-    const ViewportHeight = window.innerHeight;
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [searchFocused, setSearchFocused] = useState(false)
+    const [dropdownOpen, setDropdownOpen] = useState(false)
+    const [closeTimeout, setCloseTimeout] = useState(null)
 
     const handleLogout = () => {
         Swal.fire({
@@ -23,86 +26,167 @@ export default function Header() {
         }).then((result) => {
             if (result.isConfirmed) {
                 logout()
+                setMobileMenuOpen(false)
             }
         })
     }
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!mobileMenuOpen)
+    }
+
+    const handleMouseEnter = () => {
+        if (closeTimeout) {
+            clearTimeout(closeTimeout)
+            setCloseTimeout(null)
+        }
+        setDropdownOpen(true)
+    }
+
+    const handleMouseLeave = () => {
+        const timeout = setTimeout(() => {
+            setDropdownOpen(false)
+        }, 300)
+        setCloseTimeout(timeout)
+    }
+
+    React.useEffect(() => {
+        return () => {
+            if (closeTimeout) {
+                clearTimeout(closeTimeout)
+            }
+        }
+    }, [closeTimeout])
+
     return (
         <>
-            <header>
-                <img src={logo} alt="Logo da loja apollo veículos" className='img-logo-marca' />
-
-                <section className="info">
-                    <ul className="numeros">
-                        <li className='li-telefone'>
-                            <p >Quem Somos</p>
-                        </li>
-                        <li className='li-telefone hover' onClick={() => window.open('https://wa.me/5544991535404?text=Olá, gostaria de mais informações sobre um veículo.', '_blank')}>
-                            <p style={{ fontFamily: "Alexandria" }}>Serviços</p>
-                        </li>
-                        <li className='li-telefone hover' onClick={() => window.open('https://wa.me/55449999202840?text=Olá, gostaria de mais informações sobre um veículo.', '_blank')}>
-                            <p style={{ fontFamily: "Alexandria" }}>Fale conosco</p>
-                        </li>
-                    </ul>
-
-                </section>
-                <div className="input-container-header">
-                    <MagnifyingGlass size={20} color="#000" weight="regular" className="search-icon" />
-                    <input
-                        type="text"
-                        placeholder="Pesquisar...."
-                        className="input-pesquisa"
-                    />
-                </div>
-                <div className="buttons-right">
-                    <Link to='/' className='btn-favorito-mensagem ' >
-                        <Star size={32} weight="regular" />
-                        <p style={{ fontFamily: "Alexandria" }}>Favoritos</p>
+            <header className="modern-header">
+                <div className="header-container">
+                    {/* Logo */}
+                    <Link to="/home" className="logo-container">
+                        <img src={logo} alt="Logo Leiloeiro" className='img-logo-marca' />
                     </Link>
-                    {
-                        user ? (
-                            <div className='dropdown'>
-                                <span className="dropdown-texto">
-                                    <UserCircleGear size={32} weight="duotone" />
-                                    <p>{user.name}</p>
-                                </span>
 
-                                <div className="dropdown-conteudo">
-                                    <Link to={'/user'} className='dropdown-item'>Minha conta</Link>
-                                    {ViewportHeight < 800 && (
-                                        <>
-                                            <Link to={'/'} className='dropdown-item'>Favoritos</Link>
-                                        </>
-                                    )}
+                    {/* Navigation Desktop */}
+                    <nav className="nav-desktop">
+                        <Link to="/about" className='nav-link'>Quem Somos</Link>
+                        <Link to="/services" className='nav-link'>Serviços</Link>
+                        <Link to="/contact" className='nav-link'>Fale conosco</Link>
+                    </nav>
+
+                    {/* Search Bar */}
+                    <div className={`search-container ${searchFocused ? 'focused' : ''}`}>
+                        <MagnifyingGlass size={20} className="search-icon" weight="regular" />
+                        <input
+                            type="text"
+                            placeholder="Buscar veículos..."
+                            className="search-input"
+                            onFocus={() => setSearchFocused(true)}
+                            onBlur={() => setSearchFocused(false)}
+                        />
+                    </div>
+
+                    {/* Actions Desktop */}
+                    <div className="header-actions">
+                        <Link to='/favorites' className='action-btn' title="Favoritos">
+                            <Star size={24} weight="regular" />
+                            <span>Favoritos</span>
+                        </Link>
+
+                        {user ? (
+                            <div
+                                className='user-dropdown'
+                                onMouseEnter={handleMouseEnter}
+                                onMouseLeave={handleMouseLeave}
+                            >
+                                <button className="user-button">
+                                    <UserCircleGear size={28} weight="duotone" />
+                                    <span className="user-name">{user.name}</span>
+                                </button>
+
+                                <div className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}>
+                                    <Link to='/user' className='dropdown-item'>
+                                        <UserCircle size={18} />
+                                        <span>Minha conta</span>
+                                    </Link>
+                                    <Link to='/favorites' className='dropdown-item dropdown-item-mobile'>
+                                        <Star size={18} />
+                                        <span>Favoritos</span>
+                                    </Link>
+                                    <div className="dropdown-divider"></div>
                                     <Link to='/admin/Categories' className='dropdown-item'>
-                                        Categorias
+                                        <span>Categorias</span>
                                     </Link>
                                     <Link to='/admin/Feedback' className='dropdown-item'>
-                                        Feedback
+                                        <span>Feedback</span>
                                     </Link>
-                                    <button onClick={handleLogout}>Sair</button>
+                                    <div className="dropdown-divider"></div>
+                                    <button onClick={handleLogout} className='dropdown-item logout-btn'>
+                                        <span>Sair</span>
+                                    </button>
                                 </div>
                             </div>
                         ) : (
-                            <Link to='/' className='btn-login'>
-                                <UserCircle size={32} weight="duotone" />
-                                <p>LOGIN | ENTRAR</p>
+                            <Link to='/' className='login-btn'>
+                                <UserCircle size={24} weight="duotone" />
+                                <span>Entrar</span>
                             </Link>
-                        )
-                    }
+                        )}
+                    </div>
+
+                    {/* Mobile Menu Button */}
+                    <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+                        {mobileMenuOpen ? <X size={28} weight="bold" /> : <List size={28} weight="bold" />}
+                    </button>
+                </div>
+
+                {/* Mobile Menu */}
+                <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+                    <div className="mobile-search">
+                        <MagnifyingGlass size={20} className="search-icon" weight="regular" />
+                        <input
+                            type="text"
+                            placeholder="Buscar veículos..."
+                            className="search-input"
+                        />
+                    </div>
+
+                    <nav className="mobile-nav">
+                        <Link to="/about" className='mobile-nav-link' onClick={() => setMobileMenuOpen(false)}>
+                            Quem Somos
+                        </Link>
+                        <Link to="/services" className='mobile-nav-link' onClick={() => setMobileMenuOpen(false)}>
+                            Serviços
+                        </Link>
+                        <Link to="/contact" className='mobile-nav-link' onClick={() => setMobileMenuOpen(false)}>
+                            Fale conosco
+                        </Link>
+                        <Link to="/favorites" className='mobile-nav-link' onClick={() => setMobileMenuOpen(false)}>
+                            <Star size={20} weight="regular" />
+                            Favoritos
+                        </Link>
+
+                        {user && (
+                            <>
+                                <div className="mobile-divider"></div>
+                                <Link to="/user" className='mobile-nav-link' onClick={() => setMobileMenuOpen(false)}>
+                                    Minha conta
+                                </Link>
+                                <Link to="/admin/Categories" className='mobile-nav-link' onClick={() => setMobileMenuOpen(false)}>
+                                    Categorias
+                                </Link>
+                                <Link to="/admin/Feedback" className='mobile-nav-link' onClick={() => setMobileMenuOpen(false)}>
+                                    Feedback
+                                </Link>
+                                <button onClick={handleLogout} className='mobile-nav-link logout-mobile'>
+                                    Sair
+                                </button>
+                            </>
+                        )}
+                    </nav>
                 </div>
             </header>
-            <div className="footer-header">
-                <button className='btn-veiculos'>
-                    <p>Ver estoque de venda</p>
-                </button>
-                <button className='btn-veiculos'>
-                    <p>Ver estoque de aluguel</p>
-                </button>
-                <button className='btn-veiculos'>
-                    <p>Sobre nós</p>
-                </button>
 
-            </div>
         </>
     )
 }

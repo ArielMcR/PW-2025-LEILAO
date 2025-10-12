@@ -28,3 +28,8 @@ html {
   height: 100vh;
   padding: 2rem;
 }
+
+.p-datatable .p-sortable-column .p-sortable-column-icon {
+  color: #ffffff;
+  margin-left: 0.5rem;
+}

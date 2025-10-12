@@ -38,7 +38,12 @@ function AuthContextProvider({ children }) {
                 document.cookie = `token=${token}; path=/; max-age=3600`;
                 const payload = jwtDecode(token);
                 setUser({ id: payload.id, role: payload.role, name: payload.name });
-                return { status: true };
+
+                // Retorna a role para redirecionar corretamente
+                return {
+                    status: true,
+                    role: payload.role
+                };
             }
             else {
                 setUser(null);

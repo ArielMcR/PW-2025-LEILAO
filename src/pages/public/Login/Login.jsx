@@ -18,7 +18,16 @@ function Login() {
     const navigate = useNavigate();
 
     if (loading) return <div>Carregando...</div>;
-    if (user) return navigate('/home');
+
+    // Redireciona se já estiver logado
+    if (user) {
+        if (user.role === 'ROLE_ADMIN') {
+            navigate('/admin/dashboard');
+        } else {
+            navigate('/home');
+        }
+        return null;
+    }
 
     const onChange = (campo, e) => {
         setCredentials({ ...credentials, [campo]: e.target.value });
@@ -48,7 +57,13 @@ function Login() {
         if (result.status) {
             setErros({});
             setEnviando(false);
-            navigate('/home');
+
+            // Redireciona baseado na role do usuário
+            if (result.role === 'ROLE_ADMIN') {
+                navigate('/admin/dashboard');
+            } else {
+                navigate('/home');
+            }
         } else {
             setEnviando(false);
             return toast.error(result.message, {

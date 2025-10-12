@@ -12,7 +12,6 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { useQueryClient } from '@tanstack/react-query';
 import { useAllCategories } from '../../../hooks/useCategories';
-import Header from '../../../components/Header/Header';
 import { useState, useEffect } from 'react';
 import './styles.css';
 import { useAuth } from '../../../hooks/useAuth';
@@ -189,16 +188,14 @@ function Categories() {
         isLoading ? (
             <GenericLoader />
         ) : (
-            <>
-                <Header />
-                <main style={{ position: 'relative', padding: '20px', zIndex: 1 }} className='w-full'>
-                    <section className="header-list w-full">
-                        <h3 className="text-header"> 001 - Listagem de Categorias</h3>
-                        <br />
-                    </section>
-                    <section className="title-page">
-                        <div style={{ padding: '20px' }}> <h1 className='title'> Listagem de Categorias</h1></div>
-                    </section>
+            <div className="categories-container">
+                <section className="page-header">
+                    <div>
+                        <h1 className="page-title">Gerenciamento de Categorias</h1>
+                        <p className="page-subtitle">Gerencie todas as categorias do sistema</p>
+                    </div>
+                </section>
+                <div className="content-section">
                     <section className="content-list">
                         <div className="search-and-include">
                             <div className="search-categories" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
@@ -475,9 +472,8 @@ function Categories() {
                             </div>
                         </div>
                     </Dialog>
-                </main >
-            </>
-
+                </div>
+            </div>
         )
     );
 }

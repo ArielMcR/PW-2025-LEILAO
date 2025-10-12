@@ -1,0 +1,242 @@
+.users-container {
+    width: 100%;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 4px 0;
+}
+
+.page-subtitle {
+    color: #6b7280;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.content-section {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-and-include {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    min-width: 300px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.search-button {
+    background: #001E44;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.clear-button {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #6b7280;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.add-button {
+    background: #001E44;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.table-container {
+    width: 100%;
+}
+
+/* Table Styles */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.role-badge.admin {
+    background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+    color: #667eea;
+}
+
+.role-badge.user {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.email-cell,
+.phone-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+}
+
+.btn-action {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+.no-data p {
+    margin: 16px 0;
+    font-size: 1rem;
+}
+
+.no-data svg {
+    opacity: 0.5;
+}
+
+/* Modal Styles */
+.modal-header-custom {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-field input,
+.form-field .p-dropdown {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.form-field input:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-and-include {
+        flex-direction: column;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .add-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Override PrimeReact styles */
+.p-datatable .p-datatable-thead>tr>th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+}
+
+.even-row {
+    background-color: #f9fafb;
+}
+
+.odd-row {
+    background-color: white;
+}
+
+.p-datatable .p-datatable-tbody>tr:hover {
+    background-color: #f3f4f6 !important;
+}
+
+/* Fix para Dropdown dentro do Dialog */
+.p-dropdown-panel {
+    z-index: 10001 !important;
+}
+
+.p-dialog .p-dropdown {
+    width: 100%;
+}
+
+.p-dialog .p-dropdown .p-dropdown-label {
+    padding: 10px 12px;
+}
+
+.p-dialog {
+    z-index: 10000 !important;
+}
+
+.p-dialog-mask {
+    z-index: 9999 !important;
+}

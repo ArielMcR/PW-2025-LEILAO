@@ -1,0 +1,379 @@
+.auctions-container {
+    width: 100%;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0 0 4px 0;
+}
+
+.page-subtitle {
+    color: #6b7280;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.content-section {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.search-and-include {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+    min-width: 300px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.search-button {
+    background: #001E44;
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.clear-button {
+    background: transparent;
+    border: 1px solid #e5e7eb;
+    color: #6b7280;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.add-button {
+    background: #001E44;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.table-container {
+    width: 100%;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.value-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #10b981;
+    font-weight: 600;
+}
+
+.btn-action {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: #9ca3af;
+}
+
+.no-data p {
+    margin: 16px 0;
+    font-size: 1rem;
+}
+
+.no-data svg {
+    opacity: 0.5;
+}
+
+/* Modal Styles */
+.modal-header-custom {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.form-grid-two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field .p-dropdown,
+.form-field .p-calendar {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: #667eea;
+    outline: none;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 16px;
+}
+
+/* Image Upload Styles */
+.image-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+    background: #f9fafb;
+}
+
+.image-count {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.image-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.image-preview-item {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #e5e7eb;
+    background: #f3f4f6;
+}
+
+.image-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.remove-image-btn:hover {
+    background: #dc2626;
+    transform: scale(1.1);
+}
+
+.remove-image-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* DataView Styles */
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.espacing-table {
+    margin-top: 24px;
+}
+
+.auction-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auction-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+@media (max-width: 768px) {
+    .auction-card img {
+        width: 100% !important;
+        max-width: 100%;
+    }
+
+    .auction-card {
+        padding: 16px !important;
+    }
+}
+
+.p-dataview .p-dataview-content {
+    background: transparent;
+}
+
+.surface-border {
+    border-color: #e5e7eb;
+}
+
+.surface-card {
+    background-color: white;
+}
+
+.border-round {
+    border-radius: 8px;
+}
+
+.shadow-2 {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Hover effect on list items */
+.col-12:hover {
+    background-color: #f9fafb;
+    transition: background-color 0.2s ease;
+}
+
+/* Paginator customization */
+.paginator-mod {
+    background: white;
+    border: 1px solid #e5e7eb;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.paginator-mod .p-paginator-pages .p-paginator-page {
+    border-radius: 6px;
+    min-width: 2.5rem;
+    height: 2.5rem;
+}
+
+.paginator-mod .p-paginator-pages .p-paginator-page.p-highlight {
+    background: #001E44;
+    border-color: #001E44;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-and-include {
+        flex-direction: column;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .add-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form-grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    .col-12 .xl\\:flex-row {
+        flex-direction: column;
+    }
+
+    .col-12 img {
+        width: 100% !important;
+        max-width: 100%;
+    }
+}
+
+/* Override PrimeReact styles */
+.p-datatable .p-datatable-thead>tr>th {
+    background: #001E44;
+    color: white;
+    font-weight: 600;
+    padding: 12px;
+}
+
+.even-row {
+    background-color: #f9fafb;
+}
+
+.odd-row {
+    background-color: white;
+}
+
+.p-datatable .p-datatable-tbody>tr:hover {
+    background-color: #f3f4f6 !important;
+}

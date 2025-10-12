@@ -4,7 +4,7 @@ const API_URL = process.env.REACT_APP_URL_BACK_END;
 
 const api = axios.create({
     baseURL: API_URL,
-    timeout: 10000,
+    timeout: 100000,
     headers: {
         "Content-Type": "application/json",
     },
@@ -39,11 +39,11 @@ const Api = {
     get: async (route) => {
         return api.get(route);
     },
-    post: async (route, data) => {
-        return api.post(route, data);
+    post: async (route, data, config) => {
+        return api.post(route, data, config);
     },
-    put: async (route, data) => {
-        return api.put(route, data);
+    put: async (route, data, config) => {
+        return api.put(route, data, config);
     },
     delete: async (route) => {
         return api.delete(route);

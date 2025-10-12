@@ -12,8 +12,6 @@ export function useAllCategories(searchName = null) {
     const query = useQuery({
         queryFn: () => fetchData(searchName),
         queryKey: ['all_categories', searchName],
-        refetchInterval: 20000,
-        staleTime: 1000 * 60 * 5,
     });
 
     return {

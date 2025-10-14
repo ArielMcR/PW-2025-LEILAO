@@ -15,8 +15,8 @@ export function PublicRoute({ children }) {
                 navigate('/admin/dashboard', { replace: true });
             }
             // Se for usuário normal e estiver em login/register, redireciona para home
-            else if (location.pathname === '/' || location.pathname === '/register') {
-                navigate('/home', { replace: true });
+            else if (location.pathname === '/login' || location.pathname === '/register') {
+                navigate('/', { replace: true });
             }
         }
     }, [user, loading, navigate, location.pathname]);
@@ -36,10 +36,9 @@ export function PublicRoute({ children }) {
         );
     }
 
-    // Se for admin e tentar acessar rotas públicas, bloqueia
+    // Se for admin e tentar acessar rotas de autenticação, bloqueia
     if (user && user.role === 'ROLE_ADMIN' &&
-        (location.pathname === '/' ||
-            location.pathname === '/home' ||
+        (location.pathname === '/login' ||
             location.pathname === '/register' ||
             location.pathname.startsWith('/forgot-password'))) {
         navigate('/admin/dashboard', { replace: true });

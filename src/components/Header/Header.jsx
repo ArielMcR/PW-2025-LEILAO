@@ -127,7 +127,7 @@ export default function Header() {
                                 </div>
                             </div>
                         ) : (
-                            <Link to='/' className='login-btn'>
+                            <Link to='/login' className='login-btn'>
                                 <UserCircle size={24} weight="duotone" />
                                 <span>Entrar</span>
                             </Link>

@@ -1,105 +1,369 @@
-.card-cars {
+/* Card Moderno de Leilão */
+.auction-card-modern {
+    position: relative;
     display: flex;
     flex-direction: column;
-    margin: 2%;
-    min-width: 16vw;
-    max-width: 16vw;
-    height: fit-content;
-    background-color: rgb(37, 37, 37);
-    box-shadow: 0px 0px rgba(0, 0, 0, 0.315);
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 1.5rem;
+    max-width: 380px;
+    min-width: 320px;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.card-cars img {
+.auction-card-modern:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Badge de Status */
+.status-badge-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 0.5s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Seção de Imagem */
+.card-image-section {
+    position: relative;
     width: 100%;
+    height: 240px;
+    overflow: hidden;
+    background: #001E45;
 }
 
-.txt-card-cars {
-    padding: 2% 5% 5%;
-    text-align: left;
+.card-img-modern {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
 }
 
-.txt-card-cars h1 {
-    color: white;
-    font-size: 1em;
-    margin-bottom: 2%;
+.auction-card-modern:hover .card-img-modern {
+    transform: scale(1.15);
 }
 
-.txt-card-cars p {
-    color: rgb(211, 211, 211);
-    font-size: 1.05em;
-    margin-bottom: 1%;
+/* Carousel de Imagens */
+.card-image-section .p-carousel {
+    height: 100%;
 }
 
-.flex {
+.card-image-section .p-carousel .p-carousel-content {
+    height: 240px;
+}
+
+.card-image-section .p-carousel .p-carousel-item {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
-.botao-card-cars {
-    padding: 0.9em 1.1em;
-    background-color: gray;
-    font-size: 1em;
+/* Badge de Categoria */
+.category-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 600;
-    font-family: 'Alexandria';
-    color: white;
-    border-style: none;
-    border-radius: 0.5em;
-    margin-top: 2%;
-    right: 20%;
+    color: #333;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+    animation: fadeInUp 0.5s ease 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Conteúdo do Card */
+.card-content-modern {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+.card-title-modern {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-description-modern {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+/* Grid de Informações */
+.card-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.info-item-modern {
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
+    padding: 14px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.info-item-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.info-label-modern {
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.info-value-modern {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.info-value-price {
+    color: #27ae60;
+    font-size: 1.2rem;
+}
+
+/* Footer do Card */
+.card-footer-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: linear-gradient(to right, #f8f9fa 0%, #ffffff 100%);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.footer-item-modern {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.footer-item-modern svg {
+    color: #001E45;
+}
+
+/* Botão do Card */
+.btn-card-modern {
+    width: calc(100% - 48px);
+    margin: 0 24px 24px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
     cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
 }
 
-.botao-card-cars:hover {
-    background-color: rgb(211, 211, 211);
-    color: black;
+.btn-primary-card {
+    background: #001E45;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 30, 69, 0.3);
 }
 
+.btn-primary-card:hover {
+    background: #003366;
+    box-shadow: 0 6px 20px rgba(0, 30, 69, 0.4);
+    transform: translateY(-3px);
+}
 
+.btn-secondary-card {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(127, 140, 141, 0.4);
+}
 
+.btn-secondary-card:hover {
+    background: linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%);
+    box-shadow: 0 8px 30px rgba(127, 140, 141, 0.6);
+    transform: translateY(-3px);
+}
+
+/* Responsividade */
 @media screen and (max-width: 1024px) {
-    .card-cars {
-        min-width: 30vw;
-        max-width: 32vw;
-        margin: 3%;
+    .auction-card-modern {
+        max-width: 350px;
+        min-width: 300px;
+        margin: 1.2rem;
     }
 
-    .txt-card-cars h1 {
-        font-size: 1.3em;
+    .card-image-section {
+        height: 200px;
     }
 
-    .txt-card-cars p {
-        font-size: 0.95em;
+    .card-image-section .p-carousel .p-carousel-content {
+        height: 200px;
     }
 
-    .botao-card-cars {
-        padding: 0.8em 1em;
-        font-size: 0.9em;
+    .card-title-modern {
+        font-size: 1.2rem;
+    }
+
+    .card-description-modern {
+        font-size: 0.9rem;
+    }
+
+    .card-info-grid {
+        gap: 12px;
+    }
+
+    .info-value-modern {
+        font-size: 1rem;
+    }
+
+    .info-value-price {
+        font-size: 1.1rem;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .card-cars {
-        min-width: 80vw;
-        max-width: 85vw;
-        margin: 4% auto;
+    .auction-card-modern {
+        max-width: 100%;
+        min-width: 100%;
+        margin: 1rem 0;
     }
 
-    .txt-card-cars {
-        padding: 3% 6% 6%;
+    .card-image-section {
+        height: 180px;
     }
 
-    .txt-card-cars h1 {
-        font-size: 1.2em;
+    .card-image-section .p-carousel .p-carousel-content {
+        height: 180px;
     }
 
-    .txt-card-cars p {
-        font-size: 0.9em;
+    .card-content-modern {
+        padding: 20px;
+        gap: 12px;
     }
 
-    .botao-card-cars {
-        padding: 0.7em 0.9em;
-        font-size: 0.85em;
-        right: 10%;
+    .card-title-modern {
+        font-size: 1.1rem;
+    }
+
+    .card-description-modern {
+        font-size: 0.85rem;
+    }
+
+    .card-info-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .info-item-modern {
+        padding: 12px;
+    }
+
+    .card-footer-info {
+        padding: 12px 20px;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .btn-card-modern {
+        width: calc(100% - 40px);
+        margin: 0 20px 20px;
+        padding: 12px 24px;
+        font-size: 0.9rem;
+    }
+
+    .status-badge-card {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+
+    .category-badge {
+        bottom: 10px;
+        left: 10px;
+        padding: 6px 14px;
+        font-size: 0.75rem;
     }
 }

@@ -265,7 +265,8 @@ function Auctions() {
             });
 
             if (editingAuction) {
-                const response = await Api.put(`/auctions/${editingAuction.id}`, formDataToSend, {
+                console.log(editingAuction)
+                const response = await Api.put(`/auctions/${editingAuction.idAuction}`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },

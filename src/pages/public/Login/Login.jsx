@@ -24,7 +24,7 @@ function Login() {
         if (user.role === 'ROLE_ADMIN') {
             navigate('/admin/dashboard');
         } else {
-            navigate('/home');
+            navigate('/');
         }
         return null;
     }
@@ -62,7 +62,7 @@ function Login() {
             if (result.role === 'ROLE_ADMIN') {
                 navigate('/admin/dashboard');
             } else {
-                navigate('/home');
+                navigate('/');
             }
         } else {
             setEnviando(false);

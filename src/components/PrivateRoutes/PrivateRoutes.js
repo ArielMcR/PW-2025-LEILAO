@@ -9,11 +9,11 @@ export function PrivateRoute({ allowedRoles }) {
     if (loading) return <div>Carregando...</div>;
 
     if (!user) {
-        return navigate('/home');
+        return navigate('/');
     }
 
     if (allowedRoles && !allowedRoles.includes(user.role)) {
-        return navigate('/home');
+        return navigate('/');
     }
 
     return <Outlet />;

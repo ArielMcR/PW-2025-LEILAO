@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import { useAuctions } from '../../../hooks/useAuction';
 import { useAuth } from '../../../hooks/useAuth';
@@ -24,14 +24,30 @@ import {
     ArrowLeft
 } from 'lucide-react';
 import './AuctionDetails.css';
+import { toast } from 'react-toastify';
+import Api from '../../../api/api';
+import { useAuctionSocket } from '../../../hooks/useSocket';
+import { useQueryClient } from '@tanstack/react-query';
 
 function AuctionDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { auction, isLoading } = useAuctions(id);
+    const { auction, isLoading, refetch } = useAuctions(id);
     const { user } = useAuth();
     const [bidAmount, setBidAmount] = useState(null);
     const [showBidDialog, setShowBidDialog] = useState(false);
+    const [mensagemErro, setMensagemErro] = useState('');
+    const queryClient = useQueryClient();
+
+    useAuctionSocket(
+        id,
+        (data) => {
+            refetch();
+        },
+        (data) => {
+            refetch();
+        }
+    );
 
     const formatDate = (dateString) => {
         if (!dateString) return '-';
@@ -74,7 +90,7 @@ function AuctionDetails() {
     const getStatusInfo = (status) => {
         const statusMap = {
             'EM_ANALISE': { label: 'Em Análise', color: '#f59e0b', icon: <AlertCircle size={20} /> },
-            'ATIVO': { label: 'Ativo', color: '#10b981', icon: <CheckCircle size={20} /> },
+            'ABERTO': { label: 'Ativo', color: '#10b981', icon: <CheckCircle size={20} /> },
             'FINALIZADO': { label: 'Finalizado', color: '#6b7280', icon: <XCircle size={20} /> },
             'CANCELADO': { label: 'Cancelado', color: '#ef4444', icon: <XCircle size={20} /> }
         };
@@ -90,10 +106,64 @@ function AuctionDetails() {
         setShowBidDialog(true);
     };
 
-    const handleSubmitBid = () => {
-        // TODO: Implementar lógica de lance
-        console.log('Lance de:', bidAmount);
-        setShowBidDialog(false);
+    const handleSubmitBid = async () => {
+        try {
+            const bidData = {
+                valueBid: bidAmount,
+                userId: user.id,
+                auctionId: auction.idAuction
+            }
+            const result = await Api.post('/bids', bidData);
+            if (result.status === 201) {
+                toast.success('Lance realizado com sucesso!', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                setShowBidDialog(false);
+                // Recarrega os detalhes do leilão para atualizar os lances
+                refetch();
+            } else if (result.status === 400 && result.data && result.data.message) {
+                toast.error(result.data.message, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            } else {
+                toast.error('Erro ao realizar o lance. Tente novamente.', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
+        } catch (error) {
+            console.log(error?.response?.data?.message);
+            if (error?.response?.data?.message == "Você já possui o maior lance. Aguarde outro participante dar um lance.") {
+                setMensagemErro(error.response.data.message);
+                return;
+            }
+            toast.error('Erro ao realizar o lance. Tente novamente.', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
     };
 
     const imageTemplate = (image) => {
@@ -137,14 +207,13 @@ function AuctionDetails() {
     }
 
     const statusInfo = getStatusInfo(auction.status);
-    const isActive = auction.status === 'ATIVO';
+    const isActive = auction.status === 'ABERTO';
     const timeRemaining = getTimeRemaining(auction.endTime);
 
     return (
         <>
             <Header />
             <div className="auction-details-container">
-                {console.log(auction)}
                 {/* Breadcrumb */}
                 <div className="breadcrumb">
                     <Button
@@ -308,7 +377,7 @@ function AuctionDetails() {
                                         <User size={20} />
                                         <div>
                                             <span className="info-label">Lance Mais Alto</span>
-                                            <span className="info-value">{auction.currentBidUser}</span>
+                                            <span className="info-value">{formatCurrency(auction.currentBid)}</span>
                                         </div>
                                     </div>
                                 )}
@@ -358,6 +427,12 @@ function AuctionDetails() {
                 modal
             >
                 <div className="bid-dialog-content">
+                    {mensagemErro && (
+                        <div className="bid-error-message">
+                            <AlertCircle size={20} />
+                            <span>{mensagemErro}</span>
+                        </div>
+                    )}
                     <p className="bid-dialog-info">
                         O lance mínimo para este leilão é <strong>{formatCurrency(auction?.nextMinimumBid)}</strong>
                     </p>
@@ -376,7 +451,7 @@ function AuctionDetails() {
                     <div className="bid-dialog-actions">
                         <Button
                             label="Cancelar"
-                            onClick={() => setShowBidDialog(false)}
+                            onClick={() => { setShowBidDialog(false); setMensagemErro(''); }}
                             className="cancel-bid-btn"
                             outlined
                         />

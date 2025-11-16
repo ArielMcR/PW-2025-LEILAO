@@ -23,6 +23,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ForgotPassword from './pages/public/ForgotPassword/ForgotPassword';
 import AdminLayout from './components/AdminLayout/AdminLayout';
+import MyAuctions from './pages/private/MyAuctions/MyAuctions';
 
 const client = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -38,6 +39,11 @@ root.render(
 
               {/* Rota de Detalhes do Leilão - Acessível para todos */}
               <Route path="/auction/:id" element={<AuctionDetails />} />
+
+              {/* Rota de Meus Leilões - Apenas usuários logados */}
+              <Route element={<PrivateRoute allowedRoles={['ROLE_USER', 'ROLE_ADMIN']} />}>
+                <Route path="/my-auctions" element={<MyAuctions />} />
+              </Route>
 
               {/* Rotas de Autenticação - Admins não podem acessar */}
               <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />

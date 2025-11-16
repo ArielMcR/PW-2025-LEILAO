@@ -63,7 +63,7 @@ export default function Header() {
             <header className="modern-header">
                 <div className="header-container">
                     {/* Logo */}
-                    <Link to="/home" className="logo-container">
+                    <Link to="/" className="logo-container">
                         <img src={logo} alt="Logo Leiloeiro" className='img-logo-marca' />
                     </Link>
 
@@ -76,7 +76,7 @@ export default function Header() {
 
                     {/* Search Bar */}
                     <div className={`search-container ${searchFocused ? 'focused' : ''}`}>
-                        <MagnifyingGlass size={20} className="search-icon" weight="regular" />
+
                         <input
                             type="text"
                             placeholder="Buscar veículos..."
@@ -105,22 +105,11 @@ export default function Header() {
                                 </button>
 
                                 <div className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`}>
-                                    <Link to='/user' className='dropdown-item'>
+                                    <Link to='/my-auctions' className='dropdown-item'>
                                         <UserCircle size={18} />
-                                        <span>Minha conta</span>
+                                        <span>Meus Lances</span>
                                     </Link>
-                                    <Link to='/favorites' className='dropdown-item dropdown-item-mobile'>
-                                        <Star size={18} />
-                                        <span>Favoritos</span>
-                                    </Link>
-                                    <div className="dropdown-divider"></div>
-                                    <Link to='/admin/Categories' className='dropdown-item'>
-                                        <span>Categorias</span>
-                                    </Link>
-                                    <Link to='/admin/Feedback' className='dropdown-item'>
-                                        <span>Feedback</span>
-                                    </Link>
-                                    <div className="dropdown-divider"></div>
+
                                     <button onClick={handleLogout} className='dropdown-item logout-btn'>
                                         <span>Sair</span>
                                     </button>

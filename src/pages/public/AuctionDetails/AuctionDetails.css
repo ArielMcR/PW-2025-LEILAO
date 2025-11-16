@@ -166,6 +166,17 @@
     letter-spacing: 0.5px;
 }
 
+.bid-error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fee2e2;
+    color: #b91c1c;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
 .bid-value {
     font-size: 1.3rem;
     font-weight: 700;

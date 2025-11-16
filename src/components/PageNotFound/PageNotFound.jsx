@@ -14,7 +14,7 @@ export default function PageNotFound() {
                 <p>Oops!</p>
                 <img src={pagenotfound} alt="Page not found" />
                 <h2>Parece que essa página não existe, <span> volte para tela inicial no botão abaixo</span></h2>
-                <NavLink to="/home" className="btn-back">
+                <NavLink to="/" className="btn-back">
                     <House size={40} color='white' />
                 </NavLink>
             </div>

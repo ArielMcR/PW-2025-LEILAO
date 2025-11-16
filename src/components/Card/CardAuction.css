@@ -3,38 +3,38 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
-    border-radius: 20px;
+    background: #ffffff;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 30, 69, 0.08);
+    transition: all 0.3s ease;
+    margin: 1rem;
     max-width: 380px;
     min-width: 320px;
     height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 30, 69, 0.08);
 }
 
 .auction-card-modern:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 30, 69, 0.15);
+    border-color: rgba(0, 30, 69, 0.2);
 }
 
 /* Badge de Status */
 .status-badge-card {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 0.75rem;
+    top: 12px;
+    right: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     z-index: 10;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    animation: fadeInDown 0.5s ease;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes fadeInDown {
@@ -53,20 +53,20 @@
 .card-image-section {
     position: relative;
     width: 100%;
-    height: 240px;
+    height: 260px;
     overflow: hidden;
-    background: #001E45;
+    background: linear-gradient(135deg, #001E45 0%, #003366 100%);
 }
 
 .card-img-modern {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
+    transition: transform 0.5s ease;
 }
 
 .auction-card-modern:hover .card-img-modern {
-    transform: scale(1.15);
+    transform: scale(1.08);
 }
 
 /* Carousel de Imagens */
@@ -87,21 +87,20 @@
 /* Badge de Categoria */
 .category-badge {
     position: absolute;
-    bottom: 15px;
-    left: 15px;
-    padding: 8px 18px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    font-size: 0.8rem;
+    bottom: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: #333;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    color: #001E45;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     z-index: 10;
-    animation: fadeInUp 0.5s ease 0.2s both;
 }
 
 @keyframes fadeInUp {
@@ -118,19 +117,19 @@
 
 /* Conteúdo do Card */
 .card-content-modern {
-    padding: 24px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     flex: 1;
 }
 
 .card-title-modern {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #1a1a2e;
     margin: 0;
-    line-height: 1.3;
+    line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -140,9 +139,9 @@
 }
 
 .card-description-modern {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    color: #6b7280;
+    line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-clamp: 2;
@@ -156,46 +155,47 @@
 .card-info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 8px;
+    gap: 12px;
+    margin-top: 4px;
 }
 
 .info-item-modern {
-    background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
-    padding: 14px;
-    border-radius: 12px;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
+    gap: 4px;
+    border: 1px solid rgba(0, 30, 69, 0.06);
+    transition: all 0.2s ease;
 }
 
 .info-item-modern:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    background: #f1f5f9;
+    border-color: rgba(0, 30, 69, 0.12);
 }
 
-.info-label-modern {
-    font-size: 0.75rem;
-    color: #888;
+.info-label {
+    font-size: 0.7rem;
+    color: #64748b;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     display: flex;
     align-items: center;
-    gap: 5px;
-}
-
-.info-value-modern {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #2c3e50;
+    gap: 4px;
 }
 
 .info-value-price {
-    color: #27ae60;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #001E45;
+}
+
+.info-value-next {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #10b981;
 }
 
 /* Footer do Card */
@@ -203,66 +203,51 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 24px;
-    background: linear-gradient(to right, #f8f9fa 0%, #ffffff 100%);
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 12px 20px;
+    background: #fafbfc;
+    border-top: 1px solid rgba(0, 30, 69, 0.08);
 }
 
-.footer-item-modern {
+.footer-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    color: #555;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #475569;
     font-weight: 600;
 }
 
-.footer-item-modern svg {
+.footer-item svg {
     color: #001E45;
 }
 
 /* Botão do Card */
 .btn-card-modern {
-    width: calc(100% - 48px);
-    margin: 0 24px 24px;
-    padding: 14px 28px;
+    width: calc(100% - 40px);
+    margin: 0 20px 20px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 12px;
-    font-size: 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     text-decoration: none;
-}
-
-.btn-primary-card {
     background: #001E45;
     color: white;
-    box-shadow: 0 4px 12px rgba(0, 30, 69, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 30, 69, 0.2);
 }
 
-.btn-primary-card:hover {
+.btn-card-modern:hover {
     background: #003366;
-    box-shadow: 0 6px 20px rgba(0, 30, 69, 0.4);
-    transform: translateY(-3px);
-}
-
-.btn-secondary-card {
-    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
-    color: white;
-    box-shadow: 0 6px 20px rgba(127, 140, 141, 0.4);
-}
-
-.btn-secondary-card:hover {
-    background: linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%);
-    box-shadow: 0 8px 30px rgba(127, 140, 141, 0.6);
-    transform: translateY(-3px);
+    box-shadow: 0 4px 16px rgba(0, 30, 69, 0.3);
+    transform: translateY(-2px);
 }
 
 /* Responsividade */

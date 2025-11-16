@@ -56,8 +56,8 @@ export default function CardAuction({
     const getStatusBadge = () => {
         const statusConfig = {
             EM_ANALISE: { label: 'Em Análise', color: '#f59e0b', bgColor: '#fef3c7' },
-            ATIVO: { label: 'Ativo', color: '#10b981', bgColor: '#d1fae5' },
-            FINALIZADO: { label: 'Finalizado', color: '#6b7280', bgColor: '#f3f4f6' },
+            ABERTO: { label: 'Ativo', color: '#10b981', bgColor: '#d1fae5' },
+            ENCERRADO: { label: 'Finalizado', color: '#6b7280', bgColor: '#f3f4f6' },
             CANCELADO: { label: 'Cancelado', color: '#ef4444', bgColor: '#fee2e2' }
         };
         const config = statusConfig[status] || statusConfig.EM_ANALISE;

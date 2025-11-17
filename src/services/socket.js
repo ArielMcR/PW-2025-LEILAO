@@ -28,7 +28,7 @@ class SocketService {
             this.stompClient = new Client({
                 webSocketFactory: () => {
                     // Envia o token como query parameter na URL
-                    const socket = new SockJS(`${API_URL}:8080/ws-auction?token=${token}`);
+                    const socket = new SockJS(`${API_URL}/ws-auction?token=${token}`);
                     return socket;
                 },
                 connectHeaders: {

@@ -39,19 +39,21 @@ function Dashboard() {
         try {
             setLoading(true);
 
-            const [usersRes, categoriesRes, feedbackRes] = await Promise.all([
+            const [usersRes, categoriesRes, feedbackRes, auctionsRes] = await Promise.all([
                 Api.get('/users').catch(() => ({ data: [] })),
                 Api.get('/categories').catch(() => ({ data: [] })),
-                Api.get('/feedbacks').catch(() => ({ data: [] }))
+                Api.get('/feedbacks').catch(() => ({ data: [] })),
+                Api.get('/auctions').catch(() => ({ data: [] }))
             ]);
 
             const totalUsers = usersRes.data.data?.length || 0;
             const totalCategories = categoriesRes.data.data?.length || 0;
             const totalFeedbacks = feedbackRes.data.data?.length || 0;
+            const totalAuctions = auctionsRes.data.data?.length || 0;
 
             setStats({
                 totalUsers,
-                totalAuctions: 0,
+                totalAuctions,
                 totalCategories,
                 totalFeedbacks,
                 activeAuctions: 0,

@@ -680,7 +680,7 @@ function Auctions() {
                         />
                         <Button
                             icon={isLoading && debouncedSearch ? "pi pi-spin pi-spinner" : <Search size={20} />}
-                            className="search-button"
+                            className="search-button-auction"
                             onClick={() => setDebouncedSearch(searchTerm)}
                             tooltip="Buscar"
                             tooltipOptions={{ position: 'top' }}

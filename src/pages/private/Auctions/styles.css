@@ -48,11 +48,10 @@
     font-size: 0.95rem;
 }
 
-.search-button {
+.search-button-auction {
     background: #001E44;
     border: none;
     color: white;
-    padding: 10px 16px;
     border-radius: 8px;
 }
 
